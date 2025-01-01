@@ -23,7 +23,6 @@
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
   <title>Haplo: A Single-Transformer Baseline for Multi-Modal Understandinge</title>
   <link rel="icon" type="image/x-icon" href="static/images/bot.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -137,10 +136,10 @@
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -152,6 +151,133 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+
+<!-- Paper method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+
+        <!-- Subtitle: Three Stage Training -->
+        <h3 class="subtitle is-4" style="margin-top: 20px;">Model Architecture:</h3>
+
+
+        <!-- Subtitle: Three Stage Training -->
+        <h3 class="subtitle is-4" style="margin-top: 20px;">Three Stage Training:</h3>
+
+        <!-- Image section -->
+        <div class="has-text-centered" style="margin-top: 20px;">
+          <img src="static/images/train-pipeline.png" alt="Method Illustration" style="max-width: 100%; height: auto;">
+          <p class="is-italic" style="text-align: left; margin-top: 10px;">
+            Figure 1: The training pipeline of our Haplo. ME-Former is the proposed multi-modal early fusion transformer that can input images and text at the same time. In the modal expansion stage (a), we train ME-Former by distilling from the pre-trained vision encoder and the text embedding of the LLM. In the alignment stage (b), we tune the multi-modal projector (MM-Projector) and freeze other components. The whole model is tuned in the instruction tuning stage (c).
+          </p>
+        </div>
+
+        <!-- Additional text (optional) -->
+        <!-- <div class="content has-text-justified" style="margin-top: 20px;">
+          <p>
+            The method involves several key steps, including data preprocessing, model training, and evaluation. 
+            The above figure provides a visual overview of the process.
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper method -->
+
+
+<!-- Paper results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+
+        <!-- Subtitle: Main results -->
+        <h3 class="subtitle is-4" style="margin-top: 20px;">Main results</h3>
+
+        <!-- Image section -->
+        <div class="has-text-centered" style="margin-top: 20px;">
+          <img src="static/images/results/main_results.png" alt="Main results" style="max-width: 100%; height: auto;">
+          <p class="is-italic" style="text-align: left; margin-top: 10px;">
+            Table 1: Comparison on multi-modal benchmarks. `*' denotes images of related training datasets are observed during training. Haplo-8B-MI is the model further fine-tuned on multi-image datasets.
+          </p>
+        </div>
+
+        <!-- Subtitle: Ablation study -->
+        <h3 class="subtitle is-4" style="margin-top: 20px;">Ablation study</h3>
+
+        <!-- Subtitle: ablation 1 -->
+        <h3 class="subtitle is-5" style="margin-top: 20px;">Ablation for different LLMs, resolution, and visual instruction data:</h3>
+
+        <!-- Image section -->
+        <div class="has-text-centered" style="margin-top: 20px;">
+          <img src="static/images/results/ablation_study_1.png" alt="ablation study" style="max-width: 50%; height: auto;">
+          <p class="is-italic" style="text-align: left; margin-top: 10px;">
+            Table 2: Ablation for different LLMs, resolution (Res.), and visual instruction data (Data-S3). `*' denotes that images from training datasets are used during training.
+          </p>
+        </div>
+
+        <div class="content">
+          <ul>🌟 A more advanced language model delivers significantly superior results.</ul>
+          <ul>🌟 Higher input resolution enhances performance, as the LMM can capture finer-grained visual details.</ul>
+          <ul>🌟 Expanding the visual instruction tuning data leads to substantial improvements by enriching the LMM's knowledge.</ul>
+        </div>
+
+        <!-- Subtitle: ablation 2 -->
+        <h3 class="subtitle is-5" style="margin-top: 20px;">Ablation for modal expansion stage (stage 1):</h3>
+
+        <div class="has-text-centered" style="margin-top: 20px;">
+          <img src="static/images/results/ablation_study_2.png" alt="ablation study" style="max-width: 80%; height: auto;">
+          <p class="is-italic" style="text-align: left; margin-top: 10px;">
+            Table 3: Ablation for modal expansion stage.
+          </p>
+        </div>
+
+        <div class="content">
+          <ul>🌟 Modal expansion stage accelerates the convergence process.</ul>
+        </div>
+
+        <!-- Subtitle: ablation 3 -->
+        <h3 class="subtitle is-5" style="margin-top: 20px;">Compared with the compositional LMM using the same LLM and training data:</h3>
+
+        <div class="columns">
+          <div class="column">
+            <img src="static/images/results/ablation_3_1.png" alt="Image 1" style="width: 100%; height: auto;">
+            <p class="is-italic" style="text-align: left; margin-top: 10px;">
+              Table 4: Comparison with LLaVA-1.5-7B using the same LLM, resolution and 665K instruction data. `One Trans.' indicates whether the model belongs to one multi-modal transformer. All models depend on Vicuna-7B and 665K instruction data.
+            </p>
+          </div>
+          <div class="column">
+            <img src="static/images/results/ablation_3_2.png" alt="Image 2" style="width: 100%; height: auto;">
+            <p class="is-italic" style="text-align: left; margin-top: 10px;">
+              Table 5: Comparison with LLaVA-1.5-7B on MMStar. CP: coarse perception, FP: fine-grained perception, IR: instance reasoning, LR: logical reasoning, ST: science and technology, and MA: mathematics.
+            </p>
+          </div>
+        </div>
+
+        <div class="content">
+          <ul>🌟 Early fusion of the textual and visual embeddings is beneficial for fine-grained perception.</ul>
+        </div>
+
+        <!-- Subtitle: Qualitative results -->
+        <h3 class="subtitle is-4" style="margin-top: 20px;">Case study</h3>
+
+        <!-- Additional text (optional) -->
+        <!-- <div class="content has-text-justified" style="margin-top: 20px;">
+          <p>
+            The method involves several key steps, including data preprocessing, model training, and evaluation. 
+            The above figure provides a visual overview of the process.
+          </p>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper results -->
 
 
 <!-- Image carousel -->
@@ -192,82 +318,6 @@
 </div>
 </section>
 <!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
 
 
 <!--BibTex citation -->
