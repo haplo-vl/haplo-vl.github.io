@@ -118,23 +118,6 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
 <!-- Paper abstract -->
 <section class="section hero">
   <div class="container is-max-desktop">
@@ -162,8 +145,13 @@
 
         <!-- Subtitle: Three Stage Training -->
         <h3 class="subtitle is-4" style="margin-top: 20px;">Model Architecture:</h3>
-
-
+        <!-- Image section -->
+        <div class="has-text-centered" style="margin-top: 20px;">
+          <img src="static/images/framework.png" alt="Method Illustration" style="max-width: 100%; height: auto;">
+          <p class="is-italic" style="text-align: left; margin-top: 10px;">
+            Figure 1: The model architecture. A single transformer is used to process multi-modal sequences. Bidriectional mask is utilized for visual tokens and causal mask is utilized for textual tokens.
+          </p>
+        </div>
         <!-- Subtitle: Three Stage Training -->
         <h3 class="subtitle is-4" style="margin-top: 20px;">Three Stage Training:</h3>
 
@@ -171,7 +159,7 @@
         <div class="has-text-centered" style="margin-top: 20px;">
           <img src="static/images/train-pipeline.png" alt="Method Illustration" style="max-width: 100%; height: auto;">
           <p class="is-italic" style="text-align: left; margin-top: 10px;">
-            Figure 1: The training pipeline of our Haplo. ME-Former is the proposed multi-modal early fusion transformer that can input images and text at the same time. In the modal expansion stage (a), we train ME-Former by distilling from the pre-trained vision encoder and the text embedding of the LLM. In the alignment stage (b), we tune the multi-modal projector (MM-Projector) and freeze other components. The whole model is tuned in the instruction tuning stage (c).
+            Figure 2: The training pipeline of our Haplo. ME-Former is the proposed multi-modal early fusion transformer that can input images and text at the same time. In the modal expansion stage (a), we train ME-Former by distilling from the pre-trained vision encoder and the text embedding of the LLM. In the alignment stage (b), we tune the multi-modal projector (MM-Projector) and freeze other components. The whole model is tuned in the instruction tuning stage (c).
           </p>
         </div>
 
@@ -306,30 +294,37 @@
           <div id="results-carousel" class="carousel results-carousel" style="width: 100%; margin: 0 auto;">
             <div class="item">
               <!-- Your image here -->
-              <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+              <img src="static/images/case/case_1.png" alt="MY ALT TEXT"/>
               <h2 class="subtitle has-text-centered">
-                First image description.
+                <!-- First image description. -->
               </h2>
             </div>
             <div class="item">
               <!-- Your image here -->
-              <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+              <img src="static/images/case/case_2.png" alt="MY ALT TEXT"/>
               <h2 class="subtitle has-text-centered">
-                Second image description.
+                <!-- Second image description. -->
               </h2>
             </div>
             <div class="item">
               <!-- Your image here -->
-              <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+              <img src="static/images/case/case_3.png" alt="MY ALT TEXT"/>
               <h2 class="subtitle has-text-centered">
-                Third image description.
+                <!-- Third image description. -->
               </h2>
             </div>
             <div class="item">
               <!-- Your image here -->
-              <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+              <img src="static/images/case/case_4.png" alt="MY ALT TEXT"/>
               <h2 class="subtitle has-text-centered">
-                Fourth image description.
+                <!-- Fourth image description. -->
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/case/case_5.png" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                <!-- Fourth image description. -->
               </h2>
             </div>
           </div>
