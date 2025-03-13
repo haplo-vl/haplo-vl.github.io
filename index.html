@@ -23,7 +23,7 @@
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Haplo: A Single-Transformer Baseline for Multi-Modal Understandinge</title>
+  <title>HaploVL: A Single-Transformer Baseline for Multi-Modal Understandinge</title>
   <link rel="icon" type="image/x-icon" href="static/images/bot.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -51,7 +51,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Haplo: A Single-Transformer Baseline for Multi-Modal Understanding</h1>
+            <h1 class="title is-1 publication-title">HaploVL: A Single-Transformer Baseline for Multi-Modal Understanding</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -70,18 +70,12 @@
                     <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> ARC Lab, Tencent</span>
                     <span class="author-block"><b style="color:#b249f8; font-weight:normal">&#x25B6 </b> Tsinghua University</span>
                   </div>
-
-                  <!-- <div class="is-size-5 publication-authors">
-                    <span class="author-block">The University of Hong Kong</span>
-                    <span class="author-block">ARC Lab, Tencent</span>
-                    <span class="eql-cntrb"><small><br><sup>✉️</sup>Indicates Corresponding Authors</small></span>
-                  </div> -->
-
+                  
                   <div class="column has-text-centered">
                     <div class="publication-links">
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://github.com/Tencent/HaploVLM/blob/main/assets/HaploVL.pdf" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -91,7 +85,7 @@
               </span>
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/Tencent/HaploVLM" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -101,7 +95,7 @@
                 </span>
                 <!-- Huggingface Link -->
                 <span class="link-block">
-                  <a href="https://huggingface.co/collections/rayruiyang/haplo-vl-678881793be07ac5fd67ad68" target="_blank"
+                  <a href="https://huggingface.co/collections/stevengrove/haplo-67d2582ac79d96983fa99697" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     🤗
@@ -153,13 +147,13 @@
           </p>
         </div>
         <!-- Subtitle: Three Stage Training -->
-        <h3 class="subtitle is-4" style="margin-top: 20px;">Three Stage Training:</h3>
+        <h3 class="subtitle is-4" style="margin-top: 20px;">Training Receipe:</h3>
 
         <!-- Image section -->
         <div class="has-text-centered" style="margin-top: 20px;">
           <img src="static/images/train-pipeline.png" alt="Method Illustration" style="max-width: 100%; height: auto;">
           <p class="is-italic" style="text-align: left; margin-top: 10px;">
-            Figure 2: The training pipeline of our Haplo. ME-Former is the proposed multi-modal early fusion transformer that can input images and text at the same time. In the modal expansion stage (a), we train ME-Former by distilling from the pre-trained vision encoder and the text embedding of the LLM. In the alignment stage (b), we tune the multi-modal projector (MM-Projector) and freeze other components. The whole model is tuned in the instruction tuning stage (c).
+            Figure 2: The training pipeline of our HaploVL. During the pre-training stage (a), the pre-decoder is trained by distilling knowledge from the pre-trained vision encoder and the text embeddings of the LLM. Heads and teacher models are dropped after pre-training. In the full fine-tuning stage (b), the entire model is fine-tuned using visual instruction data.
           </p>
         </div>
 
@@ -189,7 +183,7 @@
 
         <!-- Image section -->
         <div class="has-text-centered" style="margin-top: 20px;">
-          <img src="static/images/results/main_results.png" alt="Main results" style="max-width: 100%; height: auto;">
+          <img src="static/images/results/main-results.png" alt="Main results" style="max-width: 100%; height: auto;">
           <p class="is-italic" style="text-align: left; margin-top: 10px;">
             Table 1: Comparison on multi-modal benchmarks. `*' denotes images of related training datasets are observed during training. Haplo-8B-MI is the model further fine-tuned on multi-image datasets.
           </p>
@@ -203,7 +197,7 @@
 
         <!-- Image section -->
         <div class="has-text-centered" style="margin-top: 20px;">
-          <img src="static/images/results/ablation_study_1.png" alt="ablation study" style="max-width: 50%; height: auto;">
+          <img src="static/images/results/ablation_study_1.png" alt="ablation study" style="max-width: 40%; height: auto;">
           <p class="is-italic" style="text-align: left; margin-top: 10px;">
             Table 2: Ablation for different LLMs, resolution (Res.), and visual instruction data (Data-S3). `*' denotes that images from training datasets are used during training.
           </p>
@@ -216,23 +210,23 @@
         </div>
 
         <!-- Subtitle: ablation 2 -->
-        <h3 class="subtitle is-5" style="margin-top: 20px;">Ablation for modal expansion stage (stage 1):</h3>
+        <h3 class="subtitle is-5" style="margin-top: 20px;">Ablation for pretraining stage (stage 1):</h3>
 
         <div class="has-text-centered" style="margin-top: 20px;">
           <img src="static/images/results/ablation_study_2.png" alt="ablation study" style="max-width: 80%; height: auto;">
           <p class="is-italic" style="text-align: left; margin-top: 10px;">
-            Table 3: Ablation for modal expansion stage.
+            Table 3: Ablation for pretraining stage.
           </p>
         </div>
 
         <div class="content">
-          <ul>🌟 <span style="background-color: #e2f4ff;">Modal expansion stage accelerates the convergence process.</span></ul>
+          <ul>🌟 <span style="background-color: #e2f4ff;">pretraining stage accelerates the convergence process.</span></ul>
         </div>
 
         <!-- Subtitle: ablation 3 -->
         <h3 class="subtitle is-5" style="margin-top: 20px;">Compared with the compositional LMM using the same LLM and training data:</h3>
 
-        <div class="columns">
+        <!-- <div class="columns">
           <div class="column">
             <img src="static/images/results/ablation_3_1.png" alt="Image 1" style="width: 100%; height: auto;">
             <p class="is-italic" style="text-align: left; margin-top: 10px;">
@@ -245,7 +239,16 @@
               Table 5: Comparison with LLaVA-1.5-7B on MMStar. CP: coarse perception, FP: fine-grained perception, IR: instance reasoning, LR: logical reasoning, ST: science and technology, and MA: mathematics.
             </p>
           </div>
+        </div> -->
+
+        <!-- Image section -->
+        <div class="has-text-centered" style="margin-top: 20px;">
+          <img src="static/images/results/ablation_study_3.png" alt="ablation study" style="max-width: 40%; height: auto;">
+          <p class="is-italic" style="text-align: left; margin-top: 10px;">
+            Table 4: Comparison with LLaVA-1.5-7B on MMVP and MMStar. CP: coarse perception, FP: fine-grained perception, IR: instance reasoning, LR: logical reasoning, ST: science and technology, and MA: mathematics.
+          </p>
         </div>
+
 
         <div class="has-text-centered" style="margin-top: 20px;">
           <img src="static/images/results/case_study.jpg" alt="case study" style="max-width: 100%; height: auto;">
@@ -257,6 +260,14 @@
 
         <div class="content">
           <ul>🌟 <span style="background-color: #e2f4ff;">Early fusion of the textual and visual embeddings is beneficial for fine-grained perception.</span></ul>
+        </div>
+
+
+        <div class="has-text-centered" style="margin-top: 20px;">
+          <img src="static/images/attn_map.png" alt="attn map" style="max-width: 100%; height: auto;">
+          <p class="is-italic" style="text-align: left; margin-top: 10px;">
+            Figure 4: Visualization for the early fusion mechanism of our single transformer. The second row illustrates the attention map of the gray words concerning the vision embeddings after the pre-decoder.
+          </p>
         </div>
 
         <!-- Subtitle: Qualitative results -->
@@ -340,7 +351,14 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>
+        @article{yang2024haplo,
+          title={HaploVL: A Single-Transformer Baseline for Multi-Modal Understanding},
+          author={Yang, Rui and Song, Lin and Xiao, Yicheng and Huang, Runhui and Ge, Yixiao and Shan, Ying and Zhao, Hengshuang},
+          journal={arXiv preprint arXiv:xxxx.xxxxx},
+          year={2025}
+        }
+      </code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
